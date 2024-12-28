@@ -1,19 +1,18 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Use Inter font as an example
+// Mark the component as a client component first
+'use client'; 
+
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../il8n';
 
+// Define the Inter font
 const inter = Inter({
-  variable: "--font-inter",  // Define the font variable
+  variable: "--font-inter", // Font variable for styling
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Te Au Pūngao",
-  description: "Your gateway to innovation and collaboration",
-};
-
+// Client-side component
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased`} // Apply the font variable
+        className={`${inter.variable} antialiased`} // Apply Inter font
       >
         <I18nextProvider i18n={i18n}>
           {children}
