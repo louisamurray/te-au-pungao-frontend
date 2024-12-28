@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google"; // Use Inter font as an example
 import "./globals.css";
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../il8n';
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",  // Define the font variable
   subsets: ["latin"],
 });
 
@@ -26,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} antialiased`} // Apply the font variable
       >
         <I18nextProvider i18n={i18n}>
           {children}
